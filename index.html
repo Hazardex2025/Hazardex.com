@@ -1,0 +1,287 @@
+<!-- 💣 STARTUJEMY Z HAZARDEM -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hazardex™</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+    body.dark {
+      background-color: #111;
+      color: #ddd;
+    }
+    header {
+      background-color: #0056b3;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+    section h2 {
+      color: #0056b3;
+    }
+    .about, .services, .testimonial {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    body.dark .about, body.dark .services, body.dark .testimonial {
+      background: #1a1a1a;
+      color: #eee;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 30px;
+    }
+    .neon {
+      color: #fff;
+      text-shadow: 0 0 5px #f0f, 0 0 10px #f0f, 0 0 20px #f0f;
+      animation: flicker 1s infinite alternate;
+    }
+    @keyframes flicker {
+      from { opacity: 1; }
+      to { opacity: 0.7; }
+    }
+    .fortune-btn, .party-btn, .music-btn, .fact-btn, .darkmode-btn, .vip-btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background: gold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: blink 1.5s infinite alternate;
+    }
+    @keyframes blink {
+      from { box-shadow: 0 0 10px gold; }
+      to { box-shadow: 0 0 20px orange; }
+    }
+    .warning {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: #ffdddd;
+      padding: 10px 15px;
+      border: 1px solid red;
+      border-radius: 8px;
+      font-size: 14px;
+      z-index: 1000;
+    }
+    .ticker {
+      background: #0056b3;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+    }
+    #muteBtn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .neonize * {
+      animation: neonPulse 1s infinite alternate;
+    }
+    @keyframes neonPulse {
+      0% { color: #ff0; text-shadow: 0 0 5px #ff0; }
+      100% { color: #f0f; text-shadow: 0 0 20px #f0f; }
+    }
+  </style>
+</head>
+<body>
+
+<marquee class="ticker">
+  💰 Jan z Krakowa wygrał właśnie 12 500 PLN | 🎉 Turniej Pokerowy startuje o 21:00 | 🍸 Happy Hour w barze od 20:00!
+</marquee>
+
+<button id="muteBtn" onclick="toggleAudio()">🔊</button>
+
+<audio id="casinoAudio" loop autoplay>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+  <h1 class="neon">Hazardex™</h1>
+  <nav>
+    <a href="#about">O nas</a>
+    <a href="https://www.instagram.com/hazardex_sp.z.o.o?igsh=czFsMXFqeDRqNjlz" target="_blank">Kontakt</a>
+    <a href="https://maps.app.goo.gl/cMvFJoat3vbpe5jq5" target="_blank">Lokalizacja</a>
+  </nav>
+</header>
+
+<div class="container">
+  <section id="about" class="about">
+    <h2 class="neon">O nas</h2>
+    <p>Nasze kasyno to miejsce rozrywki premium, łączące luksusowy wystrój z emocjonującą atmosferą gry...</p>
+  </section>
+
+  <section id="services" class="services">
+    <h2 class="neon">Nasza oferta</h2>
+    <ul>
+      <li>Nowoczesne automaty i klasyczne gry hazardowe</li>
+      <li>Orkiestra jazzowa na żywo</li>
+      <li>Luksusowe pokoje hotelowe</li>
+      <li>Zakłady bukmacherskie 24/7</li>
+    </ul>
+  </section>
+
+  <section class="testimonial">
+    <h2 class="neon">💬 Opinie naszych gości</h2>
+    <blockquote>
+      „Wszedłem tylko na chwilę... wyszedłem z żoną, drinkiem i nowym Mercedesem.” – Zbyszek, 58 lat
+    </blockquote>
+  </section>
+
+  <div style="text-align:center;">
+    <button class="fortune-btn" onclick="spinTheWheel()">🎰 Zakręć Fortuną!</button>
+    <button class="party-btn" onclick="togglePartyMode()">🎉 Tryb Imprezy</button>
+    <button class="music-btn" onclick="switchMusic()">🎵 Zmień Muzykę</button>
+    <button class="fact-btn" onclick="showRandomFact()">🧠 Kasynowy Fakt</button>
+    <button class="darkmode-btn" onclick="toggleDarkMode()">🌙 Tryb Nocny</button>
+    <button class="vip-btn" onclick="showVIPQuote()">👑 Cytat VIP</button>
+  </div>
+</div>
+
+<footer>
+  <p>Kontakt: hazardex@kontakt.pl | Tel: +48 123 456 789</p>
+  <p>&copy; 2025 Hazardex™. Wszelkie prawa zastrzeżone.</p>
+</footer>
+
+<div class="warning">
+  🔞 Hazard może uzależniać. Graj odpowiedzialnie!
+</div>
+
+<!-- 🐯 Maskotka -->
+<img src="https://media.giphy.com/media/l2Sq7iyYjQeZ4Hjsk/giphy.gif" style="position:fixed;bottom:0;left:10px;width:100px;z-index:1000;" />
+
+<!-- 🎉 Konfetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+  const facts = [
+    "🎲 Największa wygrana w historii kasyna to 39,7 mln dolarów!",
+    "🃏 Prawdopodobieństwo trafienia blackjacka to 4.8%",
+    "💸 W Vegas więcej ludzi przegrywa niż wygrywa!",
+    "🍾 Kasyna generują ponad 200 miliardów dolarów rocznie!",
+    "🎰 Pierwsze automaty powstały w XIX wieku!"
+  ];
+
+  const quotes = [
+    "„Zarabiaj śpiąc, wydawaj grając.” – VIP Hazardex",
+    "„Fortuna sprzyja odważnym.” – Antyczny Gracz",
+    "„Najlepsze zakłady to te spontaniczne.” – Gruby Janusz",
+    "„Nigdy nie stawiaj mniej niż 100.” – Grażyna BlackJack",
+  ];
+
+  let partyMode = false;
+  let darkMode = false;
+
+  function togglePartyMode() {
+    partyMode = !partyMode;
+    if (partyMode) {
+      document.body.classList.add("neonize");
+      let colors = ["#ff1493", "#ffa500", "#00ffcc", "#00bfff", "#ffff00"];
+      let i = 0;
+      window.partyInterval = setInterval(() => {
+        document.body.style.backgroundColor = colors[i % colors.length];
+        i++;
+      }, 500);
+    } else {
+      document.body.classList.remove("neonize");
+      clearInterval(window.partyInterval);
+      document.body.style.backgroundColor = darkMode ? "#111" : "#f4f4f4";
+    }
+  }
+
+  function spinTheWheel() {
+    const prizes = ["🥂 Darmowy drink!", "🎲 Żeton na ruletkę", "💸 10 PLN do wykorzystania!", "🙁 Niestety nic!"];
+    const prize = prizes[Math.floor(Math.random() * prizes.length)];
+    alert("Wynik: " + prize);
+    confetti({ particleCount: 200, spread: 90, origin: { y: 0.6 } });
+  }
+
+  function toggleAudio() {
+    const audio = document.getElementById("casinoAudio");
+    const btn = document.getElementById("muteBtn");
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = "🔊";
+    } else {
+      audio.pause();
+      btn.textContent = "🔇";
+    }
+  }
+
+  function switchMusic() {
+    const audio = document.getElementById("casinoAudio");
+    audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3";
+    audio.play();
+  }
+
+  function showRandomFact() {
+    alert(facts[Math.floor(Math.random() * facts.length)]);
+  }
+
+  function toggleDarkMode() {
+    darkMode = !darkMode;
+    document.body.classList.toggle("dark");
+    if (!partyMode) {
+      document.body.style.backgroundColor = darkMode ? "#111" : "#f4f4f4";
+    }
+  }
+
+  function showVIPQuote() {
+    alert(quotes[Math.floor(Math.random() * quotes.length)]);
+  }
+
+  // Animowany tytuł
+  const titleText = "💸 Hazardex™ - Wygraj albo żałuj 💣 ";
+  let titleIndex = 0;
+  setInterval(() => {
+    document.title = titleText.substring(titleIndex) + titleText.substring(0, titleIndex);
+    titleIndex = (titleIndex + 1) % titleText.length;
+  }, 250);
+
+  console.log(`
+   🎰 Witaj w Hazardex™ 🎰
+   💵 Klikaj z głową, albo nie klikaj wcale!
+  `);
+</script>
+
+</body>
+</html>
